@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "my_server" {
-  count         = 1
+  count         = 2
   ami           = "ami-03695d52f0d883f65"
   instance_type = "t3.micro"
   tags = {
