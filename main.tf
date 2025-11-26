@@ -4,7 +4,7 @@ provider "aws" {
 }
 # 1. Create the S3 bucket
 resource "aws_s3_bucket" "public_bucket" {
-  bucket = "aviz-hcp-test212"
+  bucket = "aviz-hcp-test2123"
   tags = {
     Environment = "PublicAccessDemo"
   }
