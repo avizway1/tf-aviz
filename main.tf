@@ -1,7 +1,7 @@
 # Configure the AWS Provider
 provider "aws" {
   region = "ap-south-1"
-
+}
 # 1. Create the S3 bucket
 resource "aws_s3_bucket" "public_bucket" {
   bucket = "aviz-hcp-test"
