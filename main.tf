@@ -9,3 +9,10 @@ resource "aws_instance" "my_server" {
     Name = "aviz-tf-test"
   }
 }
+
+resource "aws_s3_bucket" "public_bucket" {
+  bucket = "aviz-hcp-test-121211"
+  tags = {
+    Environment = "PublicAccessDemo"
+  }
+}
