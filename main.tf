@@ -19,7 +19,7 @@ data "aws_ami" "al2023" {
 
 variable "insatnce_type" {
     type = string
-    default = "t3.small"
+    default = "t3.micro"
 }
 
 resource "aws_instance" "example" {
@@ -27,7 +27,7 @@ resource "aws_instance" "example" {
   instance_type = var.insatnce_type
 
   tags = {
-    Name = "HCP-TF-LOCK-Test"
+    Name = "HCP-TF-LOCK-Test-Sentinal-test"
   }
 }
 
