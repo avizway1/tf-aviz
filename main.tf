@@ -19,7 +19,7 @@ data "aws_ami" "al2023" {
 
 variable "insatnce_type" {
     type = string
-    default = "t3.micro"
+    default = "t3.small"
 }
 
 resource "aws_instance" "example" {
