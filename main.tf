@@ -2,17 +2,34 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-resource "aws_instance" "my_server" {
-  ami           = "ami-03695d52f0d883f65"
-  instance_type = "t3.micro"
-  tags = {
-    Name = "aviz-tf-test"
+data "aws_ami" "al2023" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023*-kernel-6.1-x86_64"]
+  }
+
+  filter {
+    name   = "description"
+    values = ["Amazon Linux 2023*"]
   }
 }
 
-resource "aws_s3_bucket" "public_bucket" {
-  bucket = "aviz-hcp-test-12121112"
+variable "insatnce_type" {
+    type = string
+}
+
+resource "aws_instance" "example" {
+  ami           = data.aws_ami.al2023.id
+  instance_type = var.insatnce_type
+
   tags = {
-    Environment = "PublicAccessDemo"
+    Name = "AMI-Pick-Example"
   }
+}
+
+output "ami_used" {
+  value = data.aws_ami.al2023.id
 }
