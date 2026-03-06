@@ -27,7 +27,7 @@ resource "aws_instance" "example" {
   instance_type = var.insatnce_type
 
   tags = {
-    Name = "HCP-TF-Test"
+    Name = "HCP-TF-Test2"
   }
 }
 
